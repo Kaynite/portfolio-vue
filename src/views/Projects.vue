@@ -7,33 +7,38 @@
           <hr />
         </h2>
         <div class="projects-content">
-          <div class="project-box">
-            <div class="overlay">
-              <p>Timezone</p>
+          <div
+            class="project-box "
+            v-for="project in projects"
+            :key="project.title"
+            @click="project.isVisible = true"
+          >
+            <div class="overlay" @click="project.isVisible = true">
+              <p @click="project.isVisible = true">{{ project.title }}</p>
             </div>
-            <img src="../assets/images/Timezone.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
+            <img :src="project.cover" alt="" />
+            <!-- <img src="../assets/images/Timezone.jpg" alt="" /> -->
+            <div class="project-details" :class="{ show: project.isVisible }">
+              <i
+                class="close-btn fas fa-times"
+                @click.stop="project.isVisible = false"
+              ></i>
               <div class="project-details-content row">
                 <div class="project-info col-md-6">
-                  <h2>Timezone</h2>
+                  <h2>{{ project.title }}</h2>
                   <div>
                     <h3>About The Project</h3>
                     <p style="margin-left: 20px">
-                      An e-commerce application with Admin Panel created using
-                      Laravel Framework.
+                      {{ project.description }}
                     </p>
                   </div>
 
                   <div>
                     <h3>Skills</h3>
                     <ul style="margin-left: 20px;">
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li>JavaScript</li>
-                      <li>PHP</li>
-                      <li>MySql</li>
-                      <li>Laravel</li>
+                      <li v-for="skill in project.skills" :key="skill">
+                        {{ skill }}
+                      </li>
                     </ul>
                   </div>
 
@@ -50,463 +55,6 @@
               </div>
             </div>
           </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Larablog</p>
-            </div>
-            <img src="../assets/images/Larablog.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Larablog</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Blog Application with Admin Panel created using Laravel
-                      Framework.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li>JavaScript</li>
-                      <li>PHP</li>
-                      <li>MySql</li>
-                      <li>Laravel</li>
-                    </ul>
-                  </div>
-
-                  <div class="project-action">
-                    <a class="btn" href="https://github.com/Kaynite/Larablog"
-                      >Source Code</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Larablog.jpg" alt="" />
-                  <img src="../assets/images/Larablog2.jpg" alt="" />
-                  <img src="../assets/images/Larablog3.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>eStore</p>
-            </div>
-            <img src="../assets/images/eStore.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>eStore</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Multi-Lingual Online Store created using Object Oriented
-                      PHP and MVC Design Pattern from scratch without any
-                      framework.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li>JavaScript</li>
-                      <li>PHP</li>
-                      <li>MySql</li>
-                    </ul>
-                  </div>
-
-                  <div class="project-action">
-                    <a class="btn" href="https://github.com/Kaynite/Larablog"
-                      >Source Code</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/eStore.jpg" alt="" />
-                  <img src="../assets/images/eStore2.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Furniture</p>
-            </div>
-            <img src="../assets/images/Furniture.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Furniture</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Web Design For Furniture Business
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li>JavaScript</li>
-                      <li>Sass</li>
-                      <li>Bootstrap</li>
-                    </ul>
-                  </div>
-
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/furniture"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/furniture"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Furniture.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Yoga</p>
-            </div>
-            <img src="../assets/images/Yoga.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Yoga</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Landing Page for Yoga Classes business.
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML5</li>
-                      <li>CSS3</li>
-                      <li>JavaScript</li>
-                      <li>Media Queries</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/yoga"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/yoga"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Yoga.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Fitness Time</p>
-            </div>
-            <img src="../assets/images/Fitness.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Fitness Time</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Landing Page Design for Fitness Business
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML5</li>
-                      <li>CSS3</li>
-                      <li>JavaScript</li>
-                      <li>Bootstrap</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/fitnesstime"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/fitnesstime"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Fitness.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Burger Design</p>
-            </div>
-            <img src="../assets/images/Burger.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Burger Design</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Landing Page for Burger related Business.
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML5</li>
-                      <li>CSS3</li>
-                      <li>JavaScript</li>
-                      <li>Bootstrap</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/burger"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/burger"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Burger.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Meal Finder</p>
-            </div>
-            <img src="../assets/images/Meal.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Meal Finder</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A JavaScript Apllication that helps you with the receipe
-                      of any meal you want to eat.<br />
-                      Using a 3rd Party API You can get the receipe of some meal
-                      or you can get a random meal if you don't know what to
-                      eat.
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML5</li>
-                      <li>CSS3</li>
-                      <li>JavaScript</li>
-                      <li>JS DOM</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/mealfinder"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/mealfinder"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Meal.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Movie Seats</p>
-            </div>
-            <img src="../assets/images/Seats.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row row">
-                <div class="project-info col-md-6">
-                  <h2>Movie Seats</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A JavaScript Application and a Simple User Interface for
-                      booking Movies Seats Service.
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML5</li>
-                      <li>CSS3</li>
-                      <li>JavaScript</li>
-                      <li>JS DOM</li>
-                      <li>Local Storage</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/cinemaseats"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/cinemaseats"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Seats.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Form Validation</p>
-            </div>
-            <img src="../assets/images/Validation.png" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Form Validation</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      A Front-End Validation using JavaScript.
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML5</li>
-                      <li>CSS3</li>
-                      <li>JavaScript</li>
-                      <li>Media Queries</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/formvalidaton"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/formvalidaton"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Validation.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-box">
-            <div class="overlay">
-              <p>Focal</p>
-            </div>
-            <img src="../assets/images/Focal.jpg" alt="" />
-            <div class="project-details">
-              <i class="close-btn fas fa-times"></i>
-              <div class="project-details-content row">
-                <div class="project-info col-md-6">
-                  <h2>Focal</h2>
-                  <div>
-                    <h3>About The Project</h3>
-                    <p style="margin-left: 20px">
-                      This is Where Ecerything Started, My First Ever Project
-                      Using Only HTML and CSS.
-                    </p>
-                  </div>
-                  <div>
-                    <h3>Skills</h3>
-                    <ul style="margin-left: 20px;">
-                      <li>HTML</li>
-                      <li>HTML5</li>
-                      <li>CSS</li>
-                      <li>CSS3</li>
-                    </ul>
-                  </div>
-                  <div class="project-action">
-                    <a
-                      class="btn"
-                      href="https://github.com/Kaynite/Kaynite.github.io/tree/master/focal"
-                      >Source Code</a
-                    >
-                    <a
-                      class="btn"
-                      href="https://kaynite.github.io/focal"
-                      target="_blank"
-                      >Live Preview</a
-                    >
-                  </div>
-                </div>
-                <div class="project-imgs col-md-6">
-                  <img src="../assets/images/Focal.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -514,20 +62,34 @@
 </template>
 
 <script>
-const projectBoxes = document.querySelectorAll(".project-box");
-const boxes = Array.from(projectBoxes);
-
-boxes.forEach(box => {
-  let projectDetails = box.querySelector(".project-details"),
-    closeBtn = projectDetails.querySelector(".close-btn");
-  box.addEventListener("click", function() {
-    projectDetails.classList.add("show");
-  });
-  closeBtn.addEventListener("click", function(e) {
-    projectDetails.classList.remove("show");
-    e.stopPropagation();
-  });
-});
+export default {
+  data: function() {
+    return {
+      path: "../assets/images/",
+      projects: [
+        {
+          title: "Timezone",
+          description:
+            "An e-commerce application with Admin Panel created using Laravel Framework.",
+          skills: ["HTML", "CSS", "JavaScript", "PHP", "MySql", "Laravel"],
+          cover: require("@/assets/images/Timezone.jpg"),
+          hasSourceCode: true,
+          sourceCode: "https://github.com/Kaynite/Timezone",
+          hasPreview: false,
+          preview: "",
+          images: ["Timezone.jpg", "Timezone2.jpg"],
+          isVisible: false
+        },
+        {
+          title: "Larablog"
+        }
+      ]
+    };
+  },
+  methods: {
+    
+  }
+};
 </script>
 
 <style lang="scss">
